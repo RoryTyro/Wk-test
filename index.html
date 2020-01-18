@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://iclientsimulator.test.tyro.com/iclient-with-ui-v1.js"></script>
+    <script>
+    
+    var apiKey = "Test API Key";
+    var posProductInfo = {
+        posProductVendor: "Acme Co",
+        posProductName: "WKWebView test",
+        posProductVersion: "1.0.0",
+        siteReference: "E.g. my customer ID or address"
+    };
+    var iclient = new TYRO.IClientWithUI(apiKey, posProductInfo);
+    
+    var transactionCompleteHandler = function(response){
+        window.webkit.messageHandlers.jsHandler.postMessage(response);
+    };
+    var receiptHandler = function(receipt){
+        window.webkit.messageHandlers.jsHandler.postMessage(receipt);
+    };
+    function doPurchase(){
+    iclient.initiatePurchase({
+        amount: "10000",
+        enableSurcharge: false,
+        posProductData: "RoryPOS",
+        integratedReceipt: true,
+        mid: "1",
+        tid: "3",
+        integrationKey: "82b406a73ec6e74a1b68390336436a3b"
+    }, {
+        receiptCallback: receiptHandler,
+        transactionCompleteCallback: transactionCompleteHandler
+    });
+    }
+    </script>
+</head>
+<body>
+    <p id="demo">Purchase</p>
+
+</body>
+</html>
