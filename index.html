@@ -24,10 +24,7 @@
         amount: "10000",
         enableSurcharge: false,
         posProductData: "RoryPOS",
-        integratedReceipt: true,
-        mid: "1",
-        tid: "3",
-        integrationKey: "82b406a73ec6e74a1b68390336436a3b"
+        integratedReceipt: true
     }, {
         receiptCallback: receiptHandler,
         transactionCompleteCallback: transactionCompleteHandler
@@ -36,7 +33,7 @@
     </script>
 </head>
 <body>
-    <p id="demo">Purchase</p>
-
+    <p id="demo">Purchase with pairing</p>
+<iframe src="https://iclientsimulator.test.tyro.com/configuration.html" title="pairing page"></iframe>
 </body>
 </html>
