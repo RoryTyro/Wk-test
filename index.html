@@ -19,10 +19,10 @@
     var receiptHandler = function(receipt){
         window.webkit.messageHandlers.jsHandler.postMessage(receipt);
     };
-    function doPurchase(amount){
+    function doPurchase(amount, surchargeEnabled){
     iclient.initiatePurchase({
         amount: amount,
-        enableSurcharge: false,
+        enableSurcharge: surchargeEnabled,
         posProductData: "RoryPOS",
         integratedReceipt: true
     }, {
@@ -33,7 +33,7 @@
     </script>
 </head>
 <body>
-    <p id="demo">Purchase with pairing and dynamic amount</p>
+    <p id="demo">Purchase with pairing, dynamic amount and dynamic surcharge</p>
 <iframe src="https://iclientsimulator.test.tyro.com/configuration.html" title="pairing page"></iframe>
 </body>
 </html>
