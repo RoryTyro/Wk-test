@@ -19,9 +19,9 @@
     var receiptHandler = function(receipt){
         window.webkit.messageHandlers.jsHandler.postMessage(receipt);
     };
-    function doPurchase(){
+    function doPurchase(amount){
     iclient.initiatePurchase({
-        amount: "10000",
+        amount: amount,
         enableSurcharge: false,
         posProductData: "RoryPOS",
         integratedReceipt: true
@@ -33,7 +33,7 @@
     </script>
 </head>
 <body>
-    <p id="demo">Purchase with pairing</p>
+    <p id="demo">Purchase with pairing and dynamic amount</p>
 <iframe src="https://iclientsimulator.test.tyro.com/configuration.html" title="pairing page"></iframe>
 </body>
 </html>
